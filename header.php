@@ -34,16 +34,18 @@
 			<span class="navbar-toggler-icon"><k class="fas fa-bars"></i></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ml-auto">
 			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'container'		=> true,
-					'items_wrap'	=> '%3$s',
-				) );
+			wp_nav_menu( array(
+				'theme_location'    => 'primary',
+				'depth'             => 2,
+				'container'         => 'div',
+				'container_class'   => 'collapse navbar-collapse',
+				'container_id'      => 'bs-example-navbar-collapse-1',
+				'menu_class'        => 'navbar-nav ml-auto',
+				'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+				'walker'            => new WP_Bootstrap_Navwalker(),
+			) );
 			?>
-			</ul>
 			<!-- <ul class="navbar-nav ml-auto">
 
 				<li class="nav-item dropdown">
