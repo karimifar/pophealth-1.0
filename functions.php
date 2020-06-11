@@ -150,14 +150,17 @@ function pophealth_1_0_scripts() {
 	wp_enqueue_style( 'Adobe-fonts', "https://use.typekit.net/pap2xjo.css");
 
 	wp_enqueue_style( 'pophealth_1-0-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'pophealth_styles', get_template_directory_uri() . '/css/styles.css', array('pophealth_1-0-style') );
 	wp_enqueue_style( 'bootstrap_styles', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array('pophealth_1-0-style') );
+	wp_enqueue_style( 'pophealth_styles', get_template_directory_uri() . '/css/styles.css', array('pophealth_1-0-style') );
+	wp_enqueue_style( 'pophealth_styles-re', get_template_directory_uri() . '/css/responsive.css', array('pophealth_styles') );
+
 
 	wp_style_add_data( 'pophealth_1-0-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'pophealth_1-0-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script( 'bootstrap-popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array() );
 	wp_enqueue_script( 'bootstrap-script', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('jquery') );
+	wp_enqueue_script( 'pophealth_1-0-navigation', get_template_directory_uri() . '/js/navigation.js', array('bootstrap-script'));
+
 
 	wp_enqueue_script( 'pophealth_1-0-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), _S_VERSION, true );
 

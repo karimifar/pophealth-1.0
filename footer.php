@@ -11,22 +11,15 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'pophealth_1-0' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'pophealth_1-0' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'pophealth_1-0' ), 'pophealth_1-0', '<a href="http://www.emk.works">Em Karimifar</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer role="complementary">
+	<div class="footer-row ">
+		<div class="footer-logos d-flex justify-content-center">
+			<!-- <img src="./assets/img/logo.svg" alt=""> -->
+			<img src= <?php echo get_template_directory_uri() . "/img/uts-logo.svg" ?> alt="UT system logo">
+		</div>
+		<p>For more information on the Texas Child Mental Health Care Consortium, please contact <a href= "mailto:tcmhcc@utsystem.edu">tcmhcc@utsystem.edu</a></p>
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 
