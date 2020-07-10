@@ -3,10 +3,16 @@
     box-sizing: border-box;
 }
 a{
-    color: #497aa0;
+    color: #0067B9;
 }
 a:hover{
-    color: #bd4630;
+    color: #E03C31;
+}
+img{
+    width: 100%;
+}
+button{
+    border: none;
 }
 html, body{
     height: 100%;
@@ -37,18 +43,18 @@ h1.page-title{
     top:23vh;
     z-index: 200;
     color: #fff;
-    background: #497aa0;
+    background: #0067B9;
     text-shadow: 0 0 1px #fff;
-    border-left: 3px solid #bd4630;
+    border-left: 3px solid #E03C31;
     padding: 0 15px;
     /* font-weight: 500; */
 }
 h1.page-title-noBanner{
     z-index: 200;
     color: #fff;
-    background: #497aa0;
+    background: #0067B9;
     text-shadow: 0 0 1px #fff;
-    border-left: 3px solid #bd4630;
+    border-left: 3px solid #E03C31;
     padding: 0 15px;
     width: fit-content;
 }
@@ -73,11 +79,17 @@ ul.navbar-nav{
 .navbar-toggler-icon:focus, .navbar-toggler:focus, .navbar-toggler:hover{
     outline: none;
 }
+a{
+    color: #000;
+}
+a:hover{
+    text-decoration: none;
+}
 ul a{
     color: #111;
 }
 ul a:hover{
-    color: #497aa0;
+    color: #0067B9;
 }
 .dropdown-toggle::after{
     display: none;
@@ -98,7 +110,7 @@ ul a:hover{
     background: #ddd;
 }
 .dropdown-item:hover{
-    color: #497aa0;
+    color: #0067B9;
     
 }
 h1{
@@ -118,11 +130,11 @@ p{
     font-weight: 200;
 }
 #nav-icon{
-    width: 300px;
+    width: 240px;
     margin: 0;
 }
 #nav-icon img{
-    width:300px;
+    width:100%;
     
 }
 header{
@@ -161,7 +173,7 @@ footer{
     /* padding: 20px; */
 }
 .footer-row p a{
-    color: #497aa0;
+    color: #0067B9;
 }
 
 
@@ -209,13 +221,13 @@ ul.myList{
 }
 ul.myList li{
     padding: 10px 20px;
-    background: #497aa010;
+    background: #0067B910;
     max-width: 900px;
     margin: auto;
 }
 
 ul.myList li:nth-child(even){
-    background: #497aa030;
+    background: #0067B930;
 }
 
 ul.numlist{
@@ -230,7 +242,7 @@ ul.numlist li{
     top:0;
     left:0;
     width: 100%;
-    background: linear-gradient(0deg, #497aa0 0%, #193a66 50%);;
+    background: linear-gradient(0deg, #0067B9 0%, #193a66 50%);;
     ;
     padding: 5px 10%;
     padding-bottom: 6px;
@@ -240,10 +252,8 @@ ul.numlist li{
     width: 240px;
 }
 
-#covid-bar{
+.notice-bar{
     padding: 5px 5%;
-    background-color: #bd4630;
-    color:#fff;
     text-align: center;
 }
 #covid-bar a{

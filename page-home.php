@@ -21,9 +21,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
 
 ?>
 
-    <div id="covid-bar">
-        <a href="./resources/"><i class="fas fa-exclamation-triangle"></i> Texas COVID-19 Mental Health Support Line (833) 986-1919 | Mental Health Resources for Families</a>
-    </div>
+    
     <div class="banner" role="banner">
         <div class="banner-img-wrap" style="background-image: url(<?php echo $bannerImg_url ?>;)">
             <!-- <img src="./assets/img/home.jpeg" alt=""> -->
@@ -32,128 +30,176 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
         </div>
         <div id="intro-row" class="home-row d-flex flex-column justify-content-end">
             <div class="row">
+                <?php 
+                    $title = get_field("site_title");
+                    $tagline = get_field("tagline");
+                    $callout_h = get_field("callout_box_header");
+                    $callout_url = get_field("callout_link");
+                    $callout_body = get_field("callout_body");
+                ?>
                 <div class="col-md-7 align-self-end">
-                    <h1>Texas Child Mental Health Care Consortium (TCMHCC)</h1>
-                    <h2>All Texas children and adolescents will have the best mental health outcomes possible.</h2>
+                    <?php
+                        echo '<h1>'.$title.'</h1>';
+                        echo '<h2>'.$tagline.'</h2>';
+                    ?>
                 </div>
                 <div class="col-md-5 align-self-end">
                     <div class="cpan-box">
-                        <h3> <a href="tel:888-901-2726">(888) 901-CPAN</a> <span>(2726)</span></h3>
-                        <p>Primary care providers can access the Child Psychiatry Access Network (CPAN) for assistance with behavioral health care for their child and adolescent patients.</p>
+                        <?php 
+                            echo '<h3>';
+                            if($callout_url){
+                                echo '<a href='.$callout_url. '>' . $callout_h.'</a>';
+                            }else{
+                                echo $callout_h;
+                            }
+                            echo '</h3>';
+                            if($callout_body){
+                                echo '<p>'.$callout_body.'</p>';
+                            }
+                        ?>
                     </div>
-                    <p class="desc">
+                    <!-- <p class="desc">
                         The Texas Child Mental Health Care Consortium (TCMHCC) is dedicated to enhancing the state’s ability to address the mental health care needs of its children and adolescents through collaboration with health-related institutions of higher education.
-                    </p>
+                    </p> -->
                     
                 </div>
             </div>
             
         </div>
-        <div id="projects-row" class="home-row d-flex justify-content-center">
-            <a class="proj-wrap" href="./initiatives/index.html">
-                <div >
-                    <div class="proj-title d-flex flex-column justify-content-center">
-                        <h3>Pediatrician and PCP Support</h3>
-                    </div>
-                    <p>The Child Psychiatry Access Network (CPAN) is a network of child psychiatry access centers that provides support to pediatricians and primary care providers in caring for children and youth with behavioral health needs.</p>
-                </div>
-            </a>
-            <a class="proj-wrap" href="./initiatives/index.html">
-                <div>
-                    <div class="proj-title d-flex flex-column justify-content-center">
-                        <h3>School-Based Support</h3>
-                    </div>
-                    <p>Texas Child Health Access Through Telemedicine (TCHATT) is a network of telemedicine or telehealth programs that provide in-school behavioral health care to at-risk children and adolescents.</p>
-                </div>
-            </a>
+        <div id="initiatives-row" class="home-row d-flex justify-content-center">
+            <?php 
+                $query = new WP_Query(array(
+                    'post_type' => 'initiatives',
+                    'post_status' => 'publish'
+                ));
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $init_id = get_the_ID();
+                    $initiative_title = get_the_title($init_id);
+                    $initiative_blurb = get_field('initiative_blurb', $init_id);
+                    $post_url = get_post_permalink($init_id);
 
-            <a  class="proj-wrap" href="./initiatives/index.html">
-                <div>
-                    <div class="proj-title d-flex flex-column justify-content-center">
-                        <h3>Workforce Development</h3>
-                    </div>
-                    <p>The Consortium is funding new 1) child and psychiatry fellowship positions at institutions of higher education, and 2) full-time psychiatrists and residents at community mental health centers.</p>
-                </div>
-            </a>
+                    echo '<a class="proj-wrap" href='.$post_url.'>';
+                        echo  '<div>';
+                            echo '<div class="proj-title d-flex flex-column justify-content-center">';
+                                echo '<h3>'.$initiative_title.'</h3>';
+                            echo '</div>';
+                            echo '<p>'.$initiative_blurb.'</p>';
+                        echo  '</div>';
+                    echo '</a>';
+                    
+                }
+                wp_reset_query();
 
-            <a class="proj-wrap" href="./initiatives/index.html">
-                <div >
-                    <div class="proj-title d-flex flex-column justify-content-center">
-                        <h3>Research</h3>
-                    </div>
-                    <p>
-                        The Consortium will fund multi-institutional research projects in areas that have potential for advancing mental health care for children and adolescents in Texas.
-                    </p>
-                </div>
-            </a>
+            ?>
         </div>
 
         <div id="events-row" class="home-row">
+            
             <h2><a href="./meetings">Upcoming Meetings</a></h2>
             <div class="d-flex all-events">
+                <?php 
+                    $query = new WP_Query(array(
+                        'post_type' => 'events',
+                        'post_status' => 'publish'
+                    ));
+                    while ($query->have_posts()) {
+                        $query->the_post();
+                        $event_id = get_the_ID();
+                        $event_title = get_the_title($event_id);
+                        $event_date= get_field('event_date', $event_id);
+                        $todayDate= date("Y-m-d");
 
-                <!-- <div class="event-pad">
-                    <a target="_blank" href="https://utsystem.zoom.us/j/209389980?pwd=eHJtNnpQSVd6bVFqV0NwRkVkZE5QZz09">
-                        <div class="event-wrap">
-                            <div class="date">
-                                <p class="day">20</p>
-                                <p class="month">APR</p>
-                                <p class="year">2020</p>
-                            </div>
-                            <div class="event-info">
-                                <p class="title">Open Meeting</p>
-                                <p class="time"><k class="far fa-clock"></k>10am – 3pm</p>
-                                <p class="location"><k class="fas fa-map-marker-alt"></k>UT System Administration Building</p>
-                                <p class="webcast"><k class="fas fa-tv"></k> Webcast</p>
-                            </div>
-                        </div>
-                    </a>
-                </div> -->
+                        if ($event_date>=$todayDate){
+                            $month = date("M", strtotime($event_date));
+                            $year = date("Y", strtotime($event_date));
+                            $day = date("d", strtotime($event_date));
+                            // $dateArr = explode(',', $fullDate);
+                            $event_start= get_field('start_time', $event_id);
+                            $event_end= get_field('end_time', $event_id);
+                            $event_url = get_post_permalink($event_id);
+                            $webcast_link = get_field('webcast_link', $event_id);
+                            $event_location = get_field('event_location', $event_id);
 
-                <!-- <div class="event-pad">
+                            
+                                echo '<div class="event-pad"><div class="event-wrap">';
+                                    echo '<div class="date">';
+                                        echo '<p class="day">'.$day.'</p>';
+                                        echo '<p class="month">'.$month.'</p>';
+                                        echo '<p class="year">'.$year.'</p>';
+                                    echo '</div>';
+                                    echo '<div class="event-info">';
+                                        echo '<p class="title">'. $event_title.'</p>';
+                                        echo '<p class="time"><k class="far fa-clock"></k>'.$event_start. '–' . $event_end.'</p>';
+                                        echo '<p class="location"><k class="fas fa-map-marker-alt"></k>'. $event_location.'</p>';
+
+                                        if($webcast_link){
+                                            echo '<a target="_blank" href='.$webcast_link.'> <p class="webcast"><k class="fas fa-tv"></k> Webcast</p></a>';
+                                        }
+                                        
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';
+
+                        }
+
+                        
+                        
+                    }
+                    wp_reset_query();
+
+                ?> 
+        </div><!-- .all-events -->
+    </div><!-- #events-row -->
+
+    <div id="news-row" class="home-row">
+        <h2><a href="#">Latest News</a></h2>
+        <div class="all-news">
+        <?php 
+            $query = new WP_Query(array(
+                'post_type' => 'news',
+                'post_status' => 'publish',
+                'posts_per_page' => '4',
+            ));
+            while ($query->have_posts()) {
+                $query->the_post();
+                $news_id = get_the_ID();
+                $pub_date = get_the_date('F j, Y',$news_id);
+                $thumbnail = get_the_post_thumbnail_url($news_id);
+                $news_title = get_the_title($news_id);
+                $internal = get_field('internal_news', $news_id);
+                $news_url = get_post_permalink($news_id);
+                $blurb = get_field('blurb_text', $news_id);
+
+                echo '<div class="news-wrap">';
+                    if($internal){
+                        echo '<a href='.$news_url.'>';
+                    }else{
+                        $external_url = get_field('external_link', $news_id);
+                        $source = get_field('post_source', $news_id);
+                        $rel_date = get_field('release_date', $news_id);
+                        echo '<a target="_blank" href='.$external_url.'>';
+                    }
+                    echo '<div class="thumbnail"><img src='.$thumbnail.' alt=""></div>';
+                    if($internal){
+                        echo '<p class="news-date">'.$pub_date.'</p>';
+                    }else{
+                        echo '<p class="news-date">'.$rel_date.' <span class="justby">from  </span> <span class="source"> '.$source. '</p>';
+                    }
                     
-                        <div class="event-wrap">
-                            <div class="date">
-                                <p class="day">15</p>
-                                <p class="month">may</p>
-                                <p class="year">2020</p>
-                            </div>
-                            <div class="event-info">
-                                <p class="title">Open Meeting</p>
-                                <p class="time"><k class="far fa-clock"></k>10am – 3pm</p>
-                                <p class="location"><k class="fas fa-map-marker-alt"></k>Virtual</p>
-                                <a target="_blank" href="./assets/files/meetings/05-15-20/05-15-2020_agenda.pdf">
-                                    <p class="agenda webcast"><k class="far fa-sticky-note"></k> Agenda</p>
-                                </a>
-                                <a target="_blank" href="https://www.youtube.com/channel/UCSQqIc7NFQEGlSPQs6Ar7IA">
-                                    <p class="webcast"><k class="fas fa-tv"></k> Webcast</p>
-                                </a>
-                                
-                            </div>
-                        </div>
-                </div> -->
+                    echo '<h3 class="news-title">'.$news_title.'</h3>';
+                echo '</a></div>';
+            }
+            wp_reset_query();
+        ?>
+        </div><!-- .all-news -->
+        <a class="btn" href="">
+            <button>
+                See More News
+            </button>
+        </a>
+    </div><!-- #news-row -->
 
-                <div class="event-pad">
-                    <div class="event-wrap">
-                        <div class="date">
-                            <p class="day">23</p>
-                            <p class="month">jun</p>
-                            <p class="year">2020</p>
-                        </div>
-                        <div class="event-info">
-                            <p class="title">Open Meeting</p>
-                            <p class="time"><k class="far fa-clock"></k>10am – 3pm</p>
-                            <p class="location"><k class="fas fa-map-marker-alt"></k>Virtual</p>
-
-                            <a target="_blank" href="https://www.youtube.com/channel/UCSQqIc7NFQEGlSPQs6Ar7IA">
-                                <p class="webcast"><k class="fas fa-tv"></k> Webcast</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div> <!-- #content-->
 
 <?php

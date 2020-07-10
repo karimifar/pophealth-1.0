@@ -28,8 +28,8 @@
 			<a href="https://utsystem.edu"><img alt="The University of Texas System" src=<?php echo get_template_directory_uri() . "/img/uts-type.svg"?>></a>
 		</div>
 		<nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
-			<a id="nav-icon" class="navbar-brand" href="./">
-				<img src=<?php echo get_template_directory_uri() . "/img/logo.svg" ?> class="d-inline-block align-top" alt="tcmhcc logo" title="home">
+			<a id="nav-icon" class="navbar-brand" href=<?php echo get_home_url() ?>>
+				<img src=<?php echo get_template_directory_uri() . "/img/logo.png" ?> class="d-inline-block align-top" alt="tcmhcc logo" title="home">
 			</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarSupportedContent" aria-expanded="false" name="Toggle navigation">
 				<span class="navbar-toggler-icon"><k class="fas fa-bars"></i></span>
@@ -47,33 +47,26 @@
 					'walker'            => new WP_Bootstrap_Navwalker(),
 				) );
 				?>
-				<!-- <ul class="navbar-nav ml-auto">
-
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="#"aria-haspopup="true" data-toggle="dropdown" aria-expanded="false">
-						ABOUT
-						</a>
-						<div class="dropdown-menu animate slideIn" >
-							<a class="dropdown-item" href="./overview/">Overview</a>
-							<a class="dropdown-item" href="./executive-committee/">Executive Committee</a>
-						</div>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="./initiatives" aria-haspopup="true" aria-expanded="false">
-						INITIATIVES
-						</a>
-
-					</li>
-
-					<li class="nav-item dropdown">
-						<a class="nav-link" href="./meetings/" aria-haspopup="true" aria-expanded="false">
-						MEETINGS
-						</a>
-
-					</li>
-				
-				</ul> -->
 			</div>
+			
 		</nav>
-
+		
 	</header>
+		<?php 
+			$frontpage_id = get_option( 'page_on_front' );
+			$notice= get_field('notice', $frontpage_id);
+			$notice_link= get_field('notice_link', $frontpage_id);
+			$background= get_field('background_color', $frontpage_id);
+			$text_color= get_field('text_color', $frontpage_id);
+
+			if($notice){
+				echo '<div class="notice-bar" style="background-color:'.$background.'; color:'.$text_color.';">';
+				if($notice_link){
+					echo '<a href='.$notice_link.'>'.$notice.'</a>';
+				}else{
+					echo $notice;
+				}
+				echo '</div>';
+			}
+			
+		?>
