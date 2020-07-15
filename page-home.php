@@ -134,7 +134,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
                                         echo '<p class="location"><k class="fas fa-map-marker-alt"></k>'. $event_location.'</p>';
 
                                         if($webcast_link){
-                                            echo '<a target="_blank" href='.$webcast_link.'> <p class="webcast"><k class="fas fa-tv"></k> Webcast</p></a>';
+                                            echo '<p class="webcast"><a target="_blank" href='.$webcast_link.'> <k class="far fa-play-circle"></k> Webcast</a></p>';
                                         }
                                         
                                     echo '</div>';

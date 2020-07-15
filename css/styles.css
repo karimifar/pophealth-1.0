@@ -10,6 +10,7 @@ a:hover{
 }
 img{
     width: 100%;
+    height: auto;
 }
 button{
     border: none;
@@ -28,6 +29,12 @@ body{
     flex: 1 0 auto;
     position: relative;
 }
+
+#breadcrumbs{
+    /* background-color: none;
+    position: absolute;
+    margin: 10px 15%; */
+}
 footer{
     flex-shrink: 0;
 
@@ -38,16 +45,15 @@ footer{
     max-width: 1200px;
 }
 h1.page-title{
-    position: absolute;
-    left: 20%;
-    top:23vh;
-    z-index: 200;
+
     color: #fff;
     background: #0067B9;
     text-shadow: 0 0 1px #fff;
     border-left: 3px solid #E03C31;
     padding: 0 15px;
-    /* font-weight: 500; */
+    width: fit-content;
+    max-width: 400px;
+    margin: 20px 0 50px;
 }
 h1.page-title-noBanner{
     z-index: 200;
@@ -58,7 +64,7 @@ h1.page-title-noBanner{
     padding: 0 15px;
     width: fit-content;
 }
-.page-row p{
+p{
     font-size: 18px;
 }
 p.intro {

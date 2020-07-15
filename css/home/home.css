@@ -130,10 +130,10 @@
 .event-pad a:hover{
     text-decoration: none;
 }
-.event-pad a:hover .webcast{
+.event-pad .webcast:hover {
     text-decoration: underline;
 }
-.event-pad a:hover .webcast k{
+.event-pad .webcast:hover a k{
     color: #E03C31
 }
 .event-wrap:last-child{
