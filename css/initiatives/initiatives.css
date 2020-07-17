@@ -1,0 +1,89 @@
+.page-content .intro-text p{
+    font-size: 16px;
+}
+.accordion{
+    display: flex;
+    flex-wrap: wrap;
+}
+.proj-wrap{
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    width: 45%;
+    flex-grow: 1;
+    height: fit-content;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.proj-wrap:hover{
+    background-color: #ECC3B233;
+}
+.proj-thumb{
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #2F2951;
+    position: relative;
+}
+.proj-thumb .thumb-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    background-color: #2F295133;
+}
+.proj-thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.proj-info{
+    flex-grow:1;
+    width: 60%;
+    padding: 0 20px;
+}
+.proj-title{
+    color: #2F2951;
+    line-height: 1em;
+}
+.proj-title:hover{
+    color: #0067B9;
+}
+.proj-info .more a{
+    background-color: #D9E1E2;
+    
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: -0.5em;
+    width: fit-content;
+    padding: 5px;
+    border-left: 1px solid #E03C31;
+}
+.proj-info .more a:hover{
+    text-decoration: underline;
+    color: #0067B9;
+}
+p.proj-blurb {
+    font-size: 16px;
+}
+
+.panel{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.proj-title k{
+    transition: transform 0.2s ease-out;
+    transform-origin: 0% 50%;
+    /* width: 10px; */
+    
+}
+.active k{
+    transform: rotate(90deg);
+    
+}

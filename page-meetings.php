@@ -9,7 +9,9 @@
  */
 
  get_header();
- wp_enqueue_style( 'meetings-style', get_template_directory_uri() . "/css/meetings/meetings.css", array('pophealth_styles') );
+ wp_enqueue_style( 'page-style', get_template_directory_uri() . "/css/page/page.css", array('pophealth_styles') );
+ wp_enqueue_style( 'page-re', get_template_directory_uri() . "/css/page/page-re.css", array('page-style') );
+ wp_enqueue_style( 'meetings-style', get_template_directory_uri() . "/css/meetings/meetings.css", array('page-re') );
  wp_enqueue_style( 'meetings-re', get_template_directory_uri() . "/css/meetings/meetings-re.css", array('meetings-style') );
 
 ?>
@@ -20,19 +22,29 @@ the_post();
 
 $bannerImg_url = get_the_post_thumbnail_url($post_id);
 $page_title = get_the_title();
+if($bannerImg_url){
+    echo '<div class="page-hero">';
+        echo '<img src='.$bannerImg_url.' alt="">';
+        echo '<div class="hero-overlay"></div>';
+    echo '</div>';
+    echo '<div class="page-content with-hero two-column" >';
+}else{
+    echo '<div class="page-content two-column" >';
+}
 ?>
 
-<div class="page-content" >
+
     <h1 class="page-title">
         <?php echo $page_title ?>
+        <hr>
     </h1>
     <div class="meetings-content row">
-        <div class="col-md-5">
+        <div class="col-md-4 intro-text">
             <?php
                 the_content(); 
             ?>
         </div>
-        <div class="col-md-7 all-meetings">
+        <div class="col-md-8 all-meetings">
             <div class="upcoming">
                 <h2>Upcoming Meetings</h2>
                 <hr>

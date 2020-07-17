@@ -1,11 +1,15 @@
 <?php 
 
+add_shortcode('nextColumn', 'nextColumn_function');
 add_shortcode('dotiavatar', 'dotiavatar_function');
 add_shortcode('dotirating', 'dotirating_function');
 add_shortcode('dotifollow', 'dotifollow_function');
 add_shortcode('dotibutton', 'dotibutton_function');
 
 
+function nextColumn_function() {
+    return 'Hi';
+}
 
 function dotiavatar_function() {
     return '<img src="http://dayoftheindie.com/wp-content/uploads/avatar-simple.png" 
