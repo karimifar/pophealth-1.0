@@ -153,7 +153,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
     </div><!-- #events-row -->
 
     <div id="news-row" class="home-row">
-        <h2><a href="#">Latest News</a></h2>
+        <h2><a href="./news">Latest News</a></h2>
         <div class="all-news">
         <?php 
             $query = new WP_Query(array(
@@ -193,12 +193,21 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
             wp_reset_query();
         ?>
         </div><!-- .all-news -->
-        <a class="btn" href="">
+        <a class="btn" href="./news">
             <button>
                 See More News
             </button>
         </a>
     </div><!-- #news-row -->
+
+    <div id="second-banner">
+        <div class="background">
+            <img src=<?php echo get_template_directory_uri(). "/img/bg.png"?> alt="">
+        </div>
+        <p>
+        TCMHCC is dedicated to enhancing the state’s ability to address the mental health care needs of its children and adolescents through collaboration with health-related institutions of higher education.
+        </p>
+    </div>
 
 </div> <!-- #content-->
 

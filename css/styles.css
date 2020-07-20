@@ -67,7 +67,13 @@ ul.navbar-nav{
     outline: none;
 }
 a{
-    color: #000;
+    color:#000;
+}
+p a{
+    color: #0067B9;
+}
+p a:hover{
+    color: #E03C31;
 }
 a:hover{
     text-decoration: none;

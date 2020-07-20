@@ -63,7 +63,7 @@ if($bannerImg_url){
                 $bio= get_sub_field('bio');
 
                 echo '<div class="ecm-card">';
-                    echo '<a data-toggle="collapse" class="toggle-wrap" href="#ecm'.$i.'" aria-controls="ecm'. $i.' aria-expanded="false"">';
+                    echo '<a data-toggle="collapse" class="toggle-wrap collapsed" href="#ecm'.$i.'" aria-controls="ecm'. $i.' aria-expanded="false"">';
                         echo '<div class="name-toggle">';
                             echo '<h2 class="name">'.$name.'<span>, '.$cred.'</h2>';
                             echo '<p class="title">'.$title.'</p>';
