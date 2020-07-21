@@ -61,11 +61,13 @@
 
 			if($notice){
 				echo '<div class="notice-bar" style="background-color:'.$background.'; color:'.$text_color.';">';
-				if($notice_link){
-					echo '<a href='.$notice_link.'>'.$notice.'</a>';
-				}else{
-					echo $notice;
-				}
+					if($notice_link){
+						echo '<a href='.$notice_link.'>'.$notice.'</a>';
+					}else{
+						echo $notice;
+					}
+					echo '<div id="exit" ><i class="fas fa-times"></i></div>';
+
 				echo '</div>';
 			}
 			

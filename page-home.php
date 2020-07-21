@@ -37,7 +37,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
                     $callout_url = get_field("callout_link");
                     $callout_body = get_field("callout_body");
                 ?>
-                <div class="col-md-7 align-self-end">
+                <div class="main-headline col-md-7 align-self-end">
                     <?php
                         echo '<h1>'.$title.'</h1>';
                         echo '<h2>'.$tagline.'</h2>';
@@ -58,100 +58,51 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
                             }
                         ?>
                     </div>
-                    <!-- <p class="desc">
-                        The Texas Child Mental Health Care Consortium (TCMHCC) is dedicated to enhancing the state’s ability to address the mental health care needs of its children and adolescents through collaboration with health-related institutions of higher education.
-                    </p> -->
-                    
                 </div>
             </div>
-            
+        </div><!-- #intro-row -->
+    </div> <!-- .banner -->
+        
+    <div id="initiatives-row" class="home-row d-flex justify-content-center">
+        <?php 
+            $query = new WP_Query(array(
+                'post_type' => 'initiatives',
+                'post_status' => 'publish'
+            ));
+            while ($query->have_posts()) {
+                $query->the_post();
+                $init_id = get_the_ID();
+                $initiative_title = get_the_title($init_id);
+                $initiative_blurb = get_field('initiative_blurb', $init_id);
+                $post_url = get_post_permalink($init_id);
+
+                echo '<a class="proj-wrap" href='.$post_url.'>';
+                    echo  '<div>';
+                        echo '<div class="proj-title d-flex flex-column justify-content-center">';
+                            echo '<h3>'.$initiative_title.'</h3>';
+                        echo '</div>';
+                        echo '<p>'.$initiative_blurb.'</p>';
+                    echo  '</div>';
+                echo '</a>';
+                
+            }
+            wp_reset_query();
+
+        ?>
+    </div> <!-- #initiatives-row -->
+
+    <div id="second-banner">
+        <div class="background">
+            <img src=<?php echo get_template_directory_uri(). "/img/bg.png"?> alt="">
         </div>
-        <div id="initiatives-row" class="home-row d-flex justify-content-center">
-            <?php 
-                $query = new WP_Query(array(
-                    'post_type' => 'initiatives',
-                    'post_status' => 'publish'
-                ));
-                while ($query->have_posts()) {
-                    $query->the_post();
-                    $init_id = get_the_ID();
-                    $initiative_title = get_the_title($init_id);
-                    $initiative_blurb = get_field('initiative_blurb', $init_id);
-                    $post_url = get_post_permalink($init_id);
-
-                    echo '<a class="proj-wrap" href='.$post_url.'>';
-                        echo  '<div>';
-                            echo '<div class="proj-title d-flex flex-column justify-content-center">';
-                                echo '<h3>'.$initiative_title.'</h3>';
-                            echo '</div>';
-                            echo '<p>'.$initiative_blurb.'</p>';
-                        echo  '</div>';
-                    echo '</a>';
-                    
-                }
-                wp_reset_query();
-
-            ?>
+        <div class="text">
+            <p>
+            TCMHCC is dedicated to enhancing the state’s ability to address the mental health care needs of its children and adolescents through collaboration with health-related institutions of higher education.
+            </p>
         </div>
-
-        <div id="events-row" class="home-row">
-            
-            <h2><a href="./meetings">Upcoming Meetings</a></h2>
-            <div class="d-flex all-events">
-                <?php 
-                    $query = new WP_Query(array(
-                        'post_type' => 'events',
-                        'post_status' => 'publish'
-                    ));
-                    while ($query->have_posts()) {
-                        $query->the_post();
-                        $event_id = get_the_ID();
-                        $event_title = get_the_title($event_id);
-                        $event_date= get_field('event_date', $event_id);
-                        $todayDate= date("Y-m-d");
-
-                        if ($event_date>=$todayDate){
-                            $month = date("M", strtotime($event_date));
-                            $year = date("Y", strtotime($event_date));
-                            $day = date("d", strtotime($event_date));
-                            // $dateArr = explode(',', $fullDate);
-                            $event_start= get_field('start_time', $event_id);
-                            $event_end= get_field('end_time', $event_id);
-                            $event_url = get_post_permalink($event_id);
-                            $webcast_link = get_field('webcast_link', $event_id);
-                            $event_location = get_field('event_location', $event_id);
-
-                            
-                                echo '<div class="event-pad"><div class="event-wrap">';
-                                    echo '<div class="date">';
-                                        echo '<p class="day">'.$day.'</p>';
-                                        echo '<p class="month">'.$month.'</p>';
-                                        echo '<p class="year">'.$year.'</p>';
-                                    echo '</div>';
-                                    echo '<div class="event-info">';
-                                        echo '<p class="title">'. $event_title.'</p>';
-                                        echo '<p class="time"><k class="far fa-clock"></k>'.$event_start. '–' . $event_end.'</p>';
-                                        echo '<p class="location"><k class="fas fa-map-marker-alt"></k>'. $event_location.'</p>';
-
-                                        if($webcast_link){
-                                            echo '<p class="webcast"><a target="_blank" href='.$webcast_link.'> <k class="far fa-play-circle"></k> Webcast</a></p>';
-                                        }
-                                        
-                                    echo '</div>';
-                                echo '</div>';
-                            echo '</div>';
-
-                        }
-
-                        
-                        
-                    }
-                    wp_reset_query();
-
-                ?> 
-        </div><!-- .all-events -->
-    </div><!-- #events-row -->
-
+        
+    </div> <!-- #second-banner -->
+   
     <div id="news-row" class="home-row">
         <h2><a href="./news">Latest News</a></h2>
         <div class="all-news">
@@ -200,14 +151,72 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
         </a>
     </div><!-- #news-row -->
 
-    <div id="second-banner">
-        <div class="background">
-            <img src=<?php echo get_template_directory_uri(). "/img/bg.png"?> alt="">
-        </div>
-        <p>
-        TCMHCC is dedicated to enhancing the state’s ability to address the mental health care needs of its children and adolescents through collaboration with health-related institutions of higher education.
-        </p>
-    </div>
+    <div id="events-row" class="home-row">
+        
+        <h2><a href="./meetings">Upcoming Meetings</a></h2>
+        <div class="d-flex all-events">
+            <?php 
+                $query = new WP_Query(array(
+                    'post_type' => 'events',
+                    'post_status' => 'publish'
+                ));
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $event_id = get_the_ID();
+                    $event_title = get_the_title($event_id);
+                    $event_date= get_field('event_date', $event_id);
+                    $todayDate= date("Y-m-d");
+
+                    if ($event_date>=$todayDate){
+                        $month = date("M", strtotime($event_date));
+                        $year = date("Y", strtotime($event_date));
+                        $day = date("d", strtotime($event_date));
+                        // $dateArr = explode(',', $fullDate);
+                        $event_start= get_field('start_time', $event_id);
+                        $event_end= get_field('end_time', $event_id);
+                        $event_url = get_post_permalink($event_id);
+                        $webcast_link = get_field('webcast_link', $event_id);
+                        $event_location = get_field('event_location', $event_id);
+
+                        
+                            echo '<div class="event-pad"><div class="event-wrap">';
+                                echo '<div class="date">';
+                                    echo '<p class="day">'.$day.'</p>';
+                                    echo '<p class="month">'.$month.'</p>';
+                                    echo '<p class="year">'.$year.'</p>';
+                                echo '</div>';
+                                echo '<div class="event-info">';
+                                    echo '<p class="title">'. $event_title.'</p>';
+                                    echo '<p class="time"><k class="far fa-clock"></k>'.$event_start. '–' . $event_end.'</p>';
+                                    echo '<p class="location"><k class="fas fa-map-marker-alt"></k>'. $event_location.'</p>';
+
+                                    if($webcast_link){
+                                        echo '<p class="webcast"><a target="_blank" href='.$webcast_link.'> <k class="far fa-play-circle"></k> Webcast</a></p>';
+                                    }
+                                    
+                                echo '</div>';
+                            echo '</div>';
+                        echo '</div>';
+
+                    }
+
+                    
+                    
+                }
+                wp_reset_query();
+
+            ?> 
+        </div><!-- .all-events -->
+    </div><!-- #events-row -->
+
+
+
+
+
+
+    
+
+    
 
 </div> <!-- #content-->
 

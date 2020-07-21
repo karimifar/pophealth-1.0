@@ -5,27 +5,28 @@
 
 .banner-img-wrap, .banner-overlay, #intro-row{
     width:100%;
-    height: 70vh;
+    height: 65vh;
 }
 .banner-img-wrap{
     position: absolute;
     background: #0067B911;
     opacity: 1;
-    background-blend-mode: multiply;
+    background-blend-mode: color;
     /* background-image: url("../../img/home.jpeg"); */
     background-size: cover;
-    background-position: 50% 70%;
+    background-position: 50% 50%;
 }
 
 .banner-overlay{
     position: absolute;
-    background: linear-gradient(0deg, rgba(17,17,17,0.7) 20%, rgba(17,17,17,0.1) 100%);;
-    opacity: 1;
+    background: linear-gradient(0deg, rgba(1,66,106,0.8) 0%, rgba(236,195,178,0.3) 100%);
+    /* background: #01426A55; */
+    opacity: 0.8;
 
 }
 
 .home-row{
-    padding: 20px 15%;
+    padding: 5% 15%;
 }
 #intro-row{
     position: relative;
@@ -33,29 +34,41 @@
     padding-bottom: 10vh;
 }
 
+.main-headline{
+    text-shadow: 0px 0 5px #2F295199;
+}
+.main-headline h2{
+    text-shadow: 0px 0 5px #2F295166;
+    font-weight: 500;
+}
 .cpan-box{
     border: 1px solid #E03C31;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px 15px 0px;
     margin-bottom: 10px;
-    background-color: #0067B955;
+    color: #D9E1E2;
+    background-color: #01426A88;
 }
 .cpan-box h3 a{
     color: #fff;
+    text-decoration: underline;
+}
+.cpan-box h3 a:hover{
+    color: #D9E1E2;
 }
 .cpan-box h3 span{
     font-weight: 100;
     font-size: 0.7em;
 }
-#projects-row{
+#initiatives-row{
     padding-top: 5%;
     padding-bottom: 5%;
 }
 
-#projects-row a{
+#initiatives-row a{
     color: #000;
 }
-#projects-row a:hover{
+#initiatives-row a:hover{
     text-decoration: none;
 }
 .proj-wrap{
@@ -94,13 +107,13 @@
 
 #events-row{
     background-color: #0067B9;
-    padding-top:50px;
+    /* padding-top:50px; */
     
 }
 #events-row a:hover{
     text-decoration: none;
 }
-#events-row h2{
+#events-row h2 a{
     color: #0067B9;
     width:fit-content;
     display: table;
@@ -277,29 +290,38 @@ p.news-date{
 }
 
 #second-banner{
-    background: #01426A;
+    background: #0067B9;
     position: relative;
+    /* height: 400px; */
 }
 #second-banner .background{
     position: absolute;
     top:0;
     height: 100%;
+    z-index: 0;
 }
 #second-banner .background img{
     height: 100%;
     object-fit: cover;
     opacity: 0.5;
 }
-#second-banner p{
+#second-banner .text{
+    width: 60%;
+    padding: 80px 0;
+    min-width: 300px;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+#second-banner .text p{
     font-weight: 100;
     font-style: italic;
     color: #fff;
     font-family: 'halyard-display', sans-serif;
     font-size: 28px;
-    width: 50%;
-    max-width: 800px;
-    min-width: 250px;
-    padding: 100px 0;
-    margin: 0 auto;
+    padding: 20px;
+
     text-align: center;
+    border-left: 1px solid #ECC3B2;
+    border-right: 1px solid #ECC3B2;
 }

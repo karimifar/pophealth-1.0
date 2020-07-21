@@ -139,7 +139,7 @@ header{
     position: relative;
     z-index: 10;
     transition: all 0.3s ease-in-out;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ECC3B2;
     padding-top:50px;
 }
 footer{
@@ -246,15 +246,28 @@ ul.numlist li{
 }
 
 .notice-bar{
-    padding: 5px 5%;
+    padding: 8px 5%;
     text-align: center;
+    position: relative;
+    transition: all 0.3s ease-out;
 }
-#covid-bar a{
+.notice-bar a{
     color: #fff;
-    
-    font-size: 18px;
 }
-#covid-bar a:hover{
+.notice-bar a:hover{
     opacity: 0.9;
     text-decoration: underline;
+}
+.notice-bar #exit{
+    position: absolute;
+    top:5px;
+    right:30px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.notice-bar.exited{
+    height:0;
+    padding: 0;
+    overflow: hidden;
 }
