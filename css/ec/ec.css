@@ -22,25 +22,25 @@
     /* color: #bd4630; */
 }
 .toggle-wrap.collapsed .name{
-    color: #497aa0;
+    color: #01426A;
 }
 .toggle-wrap .name-toggle{
-    background-color: rgba(73, 122, 160, 0.1);
+    background-color: #D9E1E244;
     color: #000;
 }
 .toggle-wrap.collapsed .name-toggle{
     color: #000;
-    background-color: rgba(73, 122, 160, 0);
+    background-color: #D9E1E200;
 }
 .toggle-wrap.collapsed .name-toggle:hover{
-    background: rgba(73, 122, 160, 0.1);
+    background: #D9E1E244;
 }
 .toggle-wrap:hover{
     text-decoration: none;
     color: #000;
 }
 .toggle-wrap:hover .name{
-    color: #bd4630;
+    color: #E03C31;
 }
 
 
@@ -49,7 +49,7 @@
     font-size: 20px;
     padding: 10px;
     margin: 0;
-    color: #497aa0;
+    color: #01426A;
     /* align-self: center; */
 }
 .name span{
@@ -71,7 +71,7 @@ p.institution{
 }
 
 #table-header p{
-    background-color: #eee;
+    background-color: #D9E1E2;
     color: #222;
     font-size: 18px;
 }
@@ -82,7 +82,7 @@ p.institution{
 .collapse-content{
     display: flex;
     padding: 10px;
-    background-color: rgba(238, 238, 238, 0.4);;
+    background-color: #D9E1E222;
 }
 .headshot{
     width: 30%;

@@ -29,7 +29,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
         <div class="banner-overlay">
         </div>
         <div id="intro-row" class="home-row d-flex flex-column justify-content-end">
-            <div class="row">
+            <div class="row intro-wrap">
                 <?php 
                     $title = get_field("site_title");
                     $tagline = get_field("tagline");
@@ -37,13 +37,13 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
                     $callout_url = get_field("callout_link");
                     $callout_body = get_field("callout_body");
                 ?>
-                <div class="main-headline col-md-7 align-self-end">
+                <div class="main-headline col-md-12 col-lg-7 align-self-end">
                     <?php
                         echo '<h1>'.$title.'</h1>';
                         echo '<h2>'.$tagline.'</h2>';
                     ?>
                 </div>
-                <div class="col-md-5 align-self-end">
+                <div class="col-md-12 col-lg-5 action-box align-self-end">
                     <div class="cpan-box">
                         <?php 
                             echo '<h3>';
@@ -104,7 +104,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
     </div> <!-- #second-banner -->
    
     <div id="news-row" class="home-row">
-        <h2><a href="./news">Latest News</a></h2>
+        <h2><a href="./news">Latest News</a><hr></h2>
         <div class="all-news">
         <?php 
             $query = new WP_Query(array(
@@ -153,7 +153,7 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
 
     <div id="events-row" class="home-row">
         
-        <h2><a href="./meetings">Upcoming Meetings</a></h2>
+        <h2><a href="./meetings">Upcoming Meetings</a><hr></h2>
         <div class="d-flex all-events">
             <?php 
                 $query = new WP_Query(array(

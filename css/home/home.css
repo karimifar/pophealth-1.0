@@ -9,7 +9,7 @@
 }
 .banner-img-wrap{
     position: absolute;
-    background: #0067B911;
+    background: #0067B955;
     opacity: 1;
     background-blend-mode: color;
     /* background-image: url("../../img/home.jpeg"); */
@@ -21,7 +21,7 @@
     position: absolute;
     background: linear-gradient(0deg, rgba(1,66,106,0.8) 0%, rgba(236,195,178,0.3) 100%);
     /* background: #01426A55; */
-    opacity: 0.8;
+    opacity: 1;
 
 }
 
@@ -40,6 +40,7 @@
 .main-headline h2{
     text-shadow: 0px 0 5px #2F295166;
     font-weight: 500;
+    color: #fff;
 }
 .cpan-box{
     border: 1px solid #E03C31;
@@ -114,13 +115,7 @@
     text-decoration: none;
 }
 #events-row h2 a{
-    color: #0067B9;
-    width:fit-content;
-    display: table;
-    background: #fff;
-    padding: 2px 5px 5px;
-    border-left: #E03C31 2px solid;
-    
+    color: #fff;
 }
 .all-events{
     padding-top: 20px;
@@ -146,8 +141,11 @@
 .event-pad .webcast:hover {
     text-decoration: underline;
 }
+.event-pad .webcast:hover a{
+    color: #ECC3B2;
+}
 .event-pad .webcast:hover a k{
-    color: #E03C31
+    color: #ECC3B2;
 }
 .event-wrap:last-child{
     margin-right: 0;
@@ -222,14 +220,21 @@
     /* background-color: #eee; */
 }
 
-
-#news-row h2 a{
-    color: #fff;
-    width:fit-content;
+.home-row h2{
+    width: fit-content;
+    display:table;
+    font-weight: 100;
+}
+.home-row h2 a{
+    color: #0067B9;
     display: table;
-    background: #0067B9;
     padding: 2px 5px 5px;
-    border-left: #E03C31 2px solid;
+}
+.home-row h2 hr{
+    margin:0;
+    width: 40%;
+    border: 1px solid #E03C31;
+    margin-top:0px;
 }
 .news-wrap{
     width: 25%;
@@ -255,7 +260,7 @@
 }
 h3.news-title{
     font-size: 22px;
-    font-weight: 600;
+    font-weight: 500;
 }
 p.news-date{
     font-size:14px;
@@ -279,14 +284,19 @@ p.news-date{
     display: block;
 }
 .btn button{
-    padding: 10px;
+    background-color: #D9E1E2;
+    color: #0067B9;
     text-transform: uppercase;
-    background-color: #0067B9;
-    color: #fff;
-    font-size:20px;
-    border-right: 2px solid #E03C31;
-    border-left: 2px solid #E03C31;
+    font-weight: 500;
+    font-size: 18px;
+    width: fit-content;
+    padding: 5px;
+    border-left: 1px solid #E03C31;
     
+}
+.btn button:hover{
+    text-decoration: underline;
+    color: #0067B9;
 }
 
 #second-banner{

@@ -80,12 +80,18 @@ a:hover{
 }
 ul a{
     color: #111;
+
 }
 ul a:hover{
     color: #0067B9;
 }
 .dropdown-toggle::after{
     display: none;
+}
+
+a.nav-link{
+    text-transform: uppercase;
+    padding: 0 0.7rem !important;
 }
 
 .nav-item, ul.navbar-nav{
@@ -109,11 +115,13 @@ ul a:hover{
 h1{
     font-family: 'halyard-display',sans-serif;
     font-weight: 100;
-    font-size: 70px;
+    font-size: 60px;
     line-height: 1.1em;
 }
 h2{
-    font-weight: 900;
+    font-family: 'halyard-display',sans-serif;
+    font-weight: 700;
+    color: #2F2951;
 }
 h3{
     font-family: 'halyard-display',sans-serif;
