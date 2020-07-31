@@ -158,7 +158,8 @@ $bannerImg_url = get_the_post_thumbnail_url($post_id);
             <?php 
                 $query = new WP_Query(array(
                     'post_type' => 'events',
-                    'post_status' => 'publish'
+                    'post_status' => 'publish',
+                    'posts_per_page' => -1
                 ));
                 while ($query->have_posts()) {
                     $query->the_post();

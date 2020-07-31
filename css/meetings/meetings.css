@@ -41,7 +41,6 @@
     
 }
 .event-pad{
-    flex-grow: 1;
     width: 50%;
     padding: 20px;
 }
@@ -121,21 +120,30 @@ p.linked{
 }
 
 .past-meetings{
-    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: nowrap;
     background: #D9E1E244;
     padding: 10px;
+    flex-direction: row;
+    overflow: scroll;
+    /* height: 500px; */
+}
+.past-meetings .group5{
+    min-width:50%;
+
+    padding:10px;
 }
 .past-event{
     padding: 10px;
-    width: 45%;
-    flex-grow: 1;
-    max-width: 50%;
-    min-width: 250px;
+    width:100%;
+    /* width: 45%; */
+    /* flex-grow: 1; */
+    /* max-width: 50%; */
     box-shadow: 0px 0 5px 2px #2F295133;
     border-radius: 10px;
-    margin: 10px;
+    margin: 10px 0;
     background-color: #fff;
-    /* height: fit-content; */
+    height: fit-content;
 }
 
 .past-event .event-title{
@@ -145,12 +153,24 @@ p.linked{
     padding:5px;
     padding-left:10px;
     margin-bottom: 0;
-    border-bottom: 1px solid #0067B9;
+    cursor: pointer;
+    border-bottom: 1px solid #0067B900;
     /* border-left: 1px solid #0067B9;
     border-right: 1px solid #0067B9; */
 }
-.event-title span{
+.past-event .event-title:hover{
+    text-decoration: underline;
+}
+.past-event .event-title span{
     font-weight: 200;
+}
+.past-event .event-title k{
+    transform: rotate(90deg);
+    transition: all 0.2s ease-out;
+}
+.event-title.collapsed k{
+    transform: rotate(00deg);
+    transform-origin: 50% 50%;
 }
 .past-event .event-info p{
     margin: 0px;

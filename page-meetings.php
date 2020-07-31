@@ -52,7 +52,8 @@ if($bannerImg_url){
                     <?php
                     $query = new WP_Query(array(
                         'post_type' => 'events',
-                        'post_status' => 'publish'
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1
                     ));
                     while ($query->have_posts()) {
                         $query->the_post();
@@ -103,19 +104,25 @@ if($bannerImg_url){
             <div class="past">
                 <h2>Past Meetings</h2>
                 <hr>
-                <div class="past-meetings d-flex">
+                <div class="past-meetings" id="past-meetings">
                 <?php
                     $query = new WP_Query(array(
                         'post_type' => 'events',
-                        'post_status' => 'publish'
+                        'post_status' => 'publish',
+                        'posts_per_page' => -1
                     ));
+                    $count = 1;
                     while ($query->have_posts()) {
                         $query->the_post();
                         $event_id = get_the_ID();
                         $event_date= get_field('event_date', $event_id);
                         $todayDate= date("Y-m-d");
-
-                        if ($event_date<=$todayDate): 
+                        
+                        if ($event_date<$todayDate): 
+                            // echo $count;
+                            if ($count % 5 == 1){
+                                echo '<div class="group5">';
+                            }
                             $event_title = get_the_title($event_id);
                             $month = date("M", strtotime($event_date));
                             $year = date("Y", strtotime($event_date));
@@ -126,11 +133,13 @@ if($bannerImg_url){
                             $event_end= get_field('end_time', $event_id);
                             $webcast_link = get_field('webcast_link', $event_id);
                             $event_location = get_field('event_location', $event_id);
-
+                            $btn_id= 'meetingTitle-' . strval($event_id);
+                            $info_id= 'meetingInfo-' . strval($event_id);
                             
                             echo '<div class="past-event">';
-                                echo '<p class="event-title">'.$event_title.'<span> | '.$fullDate.'</span></p>';
-                                echo '<div class="event-info">';
+                                // echo $count;
+                                echo '<p class="event-title collapsed" id='.$btn_id.' data-toggle="collapse" data-target=#'.$info_id.' aria-expanded="true" aria-controls='.$info_id.'><k class="fas fa-caret-right"></k> '.$event_title.'<span> | '.$fullDate.'</span></p>';
+                                echo '<div class="event-info collapse" id='.$info_id. ' aria-labelledby='.$btn_id.' data-parent="#past-meetings">';
                                 if($webcast_link){
                                     echo '<p class="webcast linked"><a target="_blank" href='.$webcast_link.'> <k class="far fa-play-circle"></k>Webcast</a></p>';
                                 }
@@ -139,14 +148,20 @@ if($bannerImg_url){
                                 
                                         $file_title= get_sub_field('attachment')['title'];
                                         $file_url = get_sub_field('attachment')['url'];
-                                        echo '<p class="attachment linked">';
-                                        echo '<a target="_blank" href='.$file_url.'><k class="far fa-file-alt"></k>'.$file_title.'</a>';
-                                        echo '</p>';
+                                        if($file_title && $file_url){
+                                            echo '<p class="attachment linked">';
+                                            echo '<a target="_blank" href='.$file_url.'><k class="far fa-file-alt"></k>'.$file_title.'</a>';
+                                            echo '</p>';
+                                        }
 
                                     endwhile;
                                 endif;
                                 echo '</div>';
                             echo '</div>';
+                            if ($count % 5 == 0){
+                                echo '</div>';
+                            }
+                            $count++;
                         endif;
                     }
                     wp_reset_query();
