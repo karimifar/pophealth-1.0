@@ -1,6 +1,35 @@
-@media only screen and (max-width: 992px) {
-    .page-content{
+@media only screen and (max-width: 1440px) {
+    .single-column{
+        width: 80%;
+    }
+    
+}
+
+@media only screen and (max-width: 1199px) {
+    .two-column{
+        padding: 20px 5%;
+        margin-bottom: 80px;
+    }
+}
+   
+@media only screen and (max-width: 991px) {
+
+    .single-column{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .two-column{
         padding: 20px 20px;
         margin-bottom: 80px;
     }
+}
+
+@media only screen and (max-width: 575px) {
+    .single-column{
+        width: 100%;
+        padding: 0 15px;
+    }
+    
 }

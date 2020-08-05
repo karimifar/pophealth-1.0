@@ -40,14 +40,14 @@ if($bannerImg_url){
         <hr>
     </h1>
     <div class="row">
-        <div class="col-md-4 intro-text">
+        <div class="col-lg-4 col-md-12 intro-text">
             <?php
                 echo $first_column;
                 // $parts = explode('<!--nextpage-->', get_the_content());
                 // echo $parts[0];
             ?>
         </div>
-        <div class="col-md-8">
+        <div class="col-lg-8 col-md-12">
             <?php
                 the_content();
             ?>

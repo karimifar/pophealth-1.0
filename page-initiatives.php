@@ -41,12 +41,12 @@ if($bannerImg_url){
         <hr>
     </h1>
     <div class="row">
-        <div class="col-md-4 intro-text">
+        <div class="col-lg-4 col-md-12 intro-text">
             <?php
                 the_content(); 
             ?>
         </div>
-        <div class="col-md-8 accordion">
+        <div class="col-lg-8 col-md-12 accordion" id="initiatives">
             <?php 
                 $query = new WP_Query(array(
                     'post_type' => 'initiatives',
@@ -59,22 +59,25 @@ if($bannerImg_url){
                     $init_thumb = get_the_post_thumbnail_url($init_id);
                     $initiative_blurb = get_field('initiative_blurb', $init_id);
                     $post_url = get_post_permalink($init_id);
+                    $btn_id= 'btn-' .$init_id;
+                    $info_id= 'init-' .$init_id;
 
                     echo '<div class="proj-wrap">';
-                        echo '<div class="proj-thumb align-self-center">';
-                            echo '<img src='.$init_thumb. ' alt="">';
-                            echo '<div class="thumb-overlay"></div>';
-                        echo '</div>';
-                        echo  '<div class="proj-info align-self-center">';
-                            // echo '<div class="proj-title d-flex flex-column justify-content-center" data-toggle="collapse" data-target="#i'.$init_id.'" aria-controls=i'.$init_id.'>';
-                            echo '<div class="proj-title d-flex flex-column justify-content-center">';
-                                echo '<h3><k class="fas fa-caret-right"></k> '.$initiative_title.'</h3>';
+                        echo '<div class="proj-btn d-flex collapsed" id='.$btn_id.' data-toggle="collapse" data-target=#'.$info_id.' aria-controls='.$info_id.'>';
+                            echo '<div class="proj-thumb">';
+                                echo '<img src='.$init_thumb. ' alt="">';
+                                echo '<div class="thumb-overlay"></div>';
                             echo '</div>';
+                            echo  '<div class="proj-title d-flex align-self-center">';
+                                echo '<k class="fas fa-caret-right"></k> <h3>'.$initiative_title.'</h3>';                            
+                            echo  '</div>';
+                        echo '</div>';
+                        echo  '<div class="proj-info collapse" id='.$info_id. ' aria-labelledby='.$btn_id.' data-parent="#initiatives">';
                             echo '<div class="panel">';
                                 echo '<p class="proj-blurb">'.$initiative_blurb.'</p>';
                                 echo '<p class="more"><a href='.$post_url.'>Learn More</a></p>';
                             echo '</div>';
-                        echo  '</div>';
+                        echo '</div>';
                     echo '</div>';
                     
                 }

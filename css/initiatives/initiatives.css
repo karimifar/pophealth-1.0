@@ -6,7 +6,6 @@
     flex-wrap: wrap;
 }
 .proj-wrap{
-    display: flex;
     margin: 10px;
     padding: 10px;
     width: 45%;
@@ -40,7 +39,7 @@
     object-fit: cover;
 }
 
-.proj-info{
+.proj-title{
     flex-grow:1;
     width: 60%;
     padding: 0 20px;
@@ -51,6 +50,9 @@
 }
 .proj-title:hover{
     color: #0067B9;
+}
+.proj-info{
+    margin-top: 10px;
 }
 .proj-info .more a{
     background-color: #D9E1E2;
@@ -71,18 +73,26 @@ p.proj-blurb {
     font-size: 16px;
 }
 
-.panel{
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
 .proj-title k{
-    transition: transform 0.2s ease-out;
-    transform-origin: 0% 50%;
-    /* width: 10px; */
+    transform: rotate(90deg);
     
 }
+.proj-btn.collapsed .proj-title k{
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-out;
+    
+}
+.proj-btn .proj-title k{
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-out;
+    font-size: 24px;
+    width: 24px;
+    padding: 5px 3px;
+    transform-origin: 6px 14px;
+
+}
+
+
 .active k{
     transform: rotate(90deg);
     

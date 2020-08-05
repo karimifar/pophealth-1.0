@@ -221,3 +221,15 @@ include('custom-shortcodes.php');
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
+
+add_action(
+    'pre_get_posts',
+    function( \WP_Query $query ) {
+        // we only want the news post archive, exit early if it isn't
+        if ( ! $query->is_main_query() || ! $query->is_post_type_archive( 'news' ) ) {
+            return;
+        }
+        $query->set( 'posts_per_page', 8 );
+    }
+    
+);

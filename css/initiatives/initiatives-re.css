@@ -1,0 +1,22 @@
+@media only screen and (max-width: 1440px) {
+    .proj-thumb{
+        width:110px;
+        height:110px;
+    }
+    .proj-title{
+        padding: 0 10px;
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .proj-title h3{
+        font-size: 24px;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .proj-wrap{
+        width:100%;
+    }
+    
+}

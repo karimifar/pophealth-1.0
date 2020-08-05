@@ -40,7 +40,7 @@
     /* margin-right: 20px; */
     
 }
-.event-pad{
+.upcoming-meetings .event-pad{
     width: 50%;
     padding: 20px;
 }
@@ -129,8 +129,7 @@ p.linked{
     /* height: 500px; */
 }
 .past-meetings .group5{
-    min-width:50%;
-
+    min-width:48%;
     padding:10px;
 }
 .past-event{
@@ -175,10 +174,10 @@ p.linked{
 .past-event .event-info p{
     margin: 0px;
     font-size:16px;
+    padding: 4px 8px;
 }
 
 .past-event .event-info{
-    padding: 10px;
     background: #D9E1E2;
 
     /* border-left: 1px solid #0067B9;

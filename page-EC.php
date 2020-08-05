@@ -41,7 +41,7 @@ if($bannerImg_url){
         <?php echo $page_title ?>
         <hr>
     </h1>
-    <div class="committee">
+    <div class="committee" id="allEC">
         <div class="name-toggle" id="table-header">
             <p class="name">Name</p>
             <p class="title">Title</p>
@@ -58,8 +58,14 @@ if($bannerImg_url){
                 $cred= get_sub_field('credentials');
                 $title= get_sub_field('title');
                 $institution= get_sub_field('institution');
-                $headshot_url= get_sub_field('headshot')['url'];
-                $headshot_alt= get_sub_field('headshot')['alt'];
+
+                if(get_sub_field('headshot')){
+                    $headshot_url= get_sub_field('headshot')['url'];
+                    $headshot_alt= get_sub_field('headshot')['alt'];
+                }else{
+                    $headshot_url= null;
+                    $headshot_alt= null;
+                }
                 $bio= get_sub_field('bio');
 
                 echo '<div class="ecm-card">';
@@ -70,10 +76,15 @@ if($bannerImg_url){
                             echo '<p class="institution">'.$institution.'</p>';
                         echo '</div>';
                     echo '</a>';
-                    echo '<div class="collapse-content collapse" id="ecm'.$i.'">';
+                    echo '<div class="collapse-content collapse" id="ecm'.$i.'" data-parent="#allEC">';
                         echo '<div class="headshot">';
                             echo '<div class="headshot-wrap">';
-                                echo '<img src='.$headshot_url. ' alt='.$headshot_alt.'>';
+                                echo '<img src='.$headshot_url;
+                                if($headshot_alt){
+                                    echo ' alt="'.$headshot_alt.'">';
+                                }else{
+                                    echo ' alt="Portrait">';
+                                }
                             echo '</div>';
                         echo '</div>';
                         echo '<p class="bio">'.$bio.'</p>';

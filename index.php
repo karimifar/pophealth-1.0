@@ -14,8 +14,8 @@
 
 get_header();
 ?>
-
 	<main id="primary" class="site-main">
+	this is index
 
 		<?php
 		if ( have_posts() ) :

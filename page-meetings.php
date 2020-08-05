@@ -39,12 +39,12 @@ if($bannerImg_url){
         <hr>
     </h1>
     <div class="meetings-content row">
-        <div class="col-md-4 intro-text">
+        <div class="col-lg-4 col-md-12 intro-text">
             <?php
                 the_content(); 
             ?>
         </div>
-        <div class="col-md-8 all-meetings">
+        <div class="col-lg-8 col-md-12 all-meetings">
             <div class="upcoming">
                 <h2>Upcoming Meetings</h2>
                 <hr>
@@ -120,7 +120,7 @@ if($bannerImg_url){
                         
                         if ($event_date<$todayDate): 
                             // echo $count;
-                            if ($count % 5 == 1){
+                            if ($count % 4 == 1){
                                 echo '<div class="group5">';
                             }
                             $event_title = get_the_title($event_id);
@@ -158,7 +158,7 @@ if($bannerImg_url){
                                 endif;
                                 echo '</div>';
                             echo '</div>';
-                            if ($count % 5 == 0){
+                            if ($count % 4 == 0){
                                 echo '</div>';
                             }
                             $count++;

@@ -1,3 +1,9 @@
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
+    .upcoming-meetings .event-pad{
+        width: 100%;
+    }
+    .past-meetings .group5{
+        min-width:100%;
+    }
   
 }
