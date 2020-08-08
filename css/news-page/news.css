@@ -31,7 +31,7 @@
 .news-title{
     transition: all 0.2s ease-out;
 }
-.news-title:hover{
+.news-link:hover .news-title{
     color: #0067B9;
 }
 .news-date{

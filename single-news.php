@@ -25,9 +25,9 @@ wp_enqueue_style( 'news-style-re', get_template_directory_uri() . "/css/news/new
                 echo '<img src='.$hero_url.' alt="">';
                 echo '<div class="hero-overlay"></div>';
             echo '</div>';
-            echo '<div class="post-content hero-post">';
+            echo '<div class="post-content hero-post" id="news-content">';
         }else{
-            echo '<div class="post-content news-row">';
+            echo '<div class="post-content" id="news-content">';
         }
             
             echo '<div class="post-title news-title">';
@@ -40,7 +40,7 @@ wp_enqueue_style( 'news-style-re', get_template_directory_uri() . "/css/news/new
             echo '<div class="post-body">';
                 the_content();
             echo '</div>' ;
-        echo '</div>';
+        echo '</div><!-- #news-row -->';
         
         
     ?>

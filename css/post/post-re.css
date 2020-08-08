@@ -1,0 +1,35 @@
+@media only screen and (max-width: 1440px) {
+    .post-content{
+        width: 80%;
+    }
+    
+}
+
+@media only screen and (max-width: 1199px) {
+
+}
+   
+@media only screen and (max-width: 991px) {
+
+    .post-content{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .wp-block-image .is-resized{
+        width: 100%;
+    }
+    .post-title{
+        margin-top: 50px;
+    }
+
+}
+
+@media only screen and (max-width: 575px) {
+    .post-content{
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+}

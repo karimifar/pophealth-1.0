@@ -28,6 +28,9 @@ if ( have_posts() ) :
         $news_id = get_the_ID();
         $pub_date = get_the_date('F j, Y',$news_id);
         $thumbnail = get_the_post_thumbnail_url($news_id);
+        if(!$thumbnail){
+            $thumbnail = get_template_directory_uri() . '/img/tcmhcc-generic.jpg';
+        }
         $news_title = get_the_title($news_id);
         $internal = get_field('internal_news', $news_id);
         $news_url = get_post_permalink($news_id);
