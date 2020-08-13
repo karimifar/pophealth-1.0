@@ -112,6 +112,29 @@ a.nav-link{
     color: #0067B9;
     
 }
+.current-menu-item .nav-link::after{
+    content: '';
+    width: 40%;
+    display: block;
+    border: 1px solid #0067B9;
+}
+.current_page_parent .nav-link::after{
+    content: '';
+    width: 40%;
+    display: block;
+    border: 1px solid #0067B9;
+    margin-left: 0;
+}
+
+.dropdown-menu .current-menu-item .dropdown-item::after{
+    content: '';
+    width: 30px;
+    display: block;
+    /* border: 1px solid #0067B9; */
+}
+.dropdown-menu .current-menu-item .dropdown-item{
+    border-left: 2px solid #2F2951;
+}
 h1{
     font-family: 'halyard-display',sans-serif;
     font-weight: 100;
